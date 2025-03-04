@@ -24,20 +24,20 @@ Contributors: [Your Name or Username]
 Tags: email, wp_mail, disable email, admin notice, development
 Requires at least: 5.0
 Tested up to: 6.5
-Stable tag: 1.4
+Stable tag: 1.5
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Easily toggle outgoing WordPress emails on or off with a simple checkbox, complete with an admin notice when emails are disabled.
+Easily toggle outgoing WordPress emails on or off with a simple checkbox, complete with a customizable admin notice when emails are disabled.
 
 == Description ==
 
-**Toggle Email Control** is a lightweight plugin designed for developers and site administrators who need to disable all outgoing emails from a WordPress site—perfect for development, staging, or testing environments. With a single checkbox in the admin settings, you can block emails sent via `wp_mail()` and receive a clear admin notice when the feature is active.
+**Toggle Email Control** is a lightweight plugin designed for developers and site administrators who need to disable all outgoing emails from a WordPress site—perfect for development, staging, or testing environments. With a single checkbox in the admin settings, you can block emails sent via `wp_mail()` and customize the admin notice that appears when the feature is active.
 
 Key features:
 - Disable all outgoing emails with one click.
-- Displays a prominent admin notice when emails are disabled.
+- Displays a customizable admin notice when emails are disabled (default: "<strong>THIS DEV SITE HAS NO OUTGOING MAIL</strong> Mail from wp_mail() has been disabled for this site.").
 - Uses both `wp_mail` filter and `phpmailer_init` fallback for reliable email blocking.
 - Ideal for preventing unwanted emails during testing or development.
 
@@ -48,14 +48,14 @@ No need to edit core files or `wp-config.php`—everything is managed through a 
 1. Upload the `toggle-email-control` folder to the `/wp-content/plugins/` directory, or install the plugin directly through the WordPress plugins screen.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Navigate to **Settings > Email Control** to configure the plugin.
-4. Check the "Disable Outgoing Emails" box to block all emails, or leave it unchecked to allow normal email functionality.
 
 == Usage ==
 
 1. Go to **Settings > Email Control** in your WordPress admin dashboard.
 2. Check the box labeled "Disable Outgoing Emails" and click "Save Changes" to stop all emails from being sent.
-3. When enabled, a red notice will appear at the top of your admin screens: "THIS DEV SITE HAS NO OUTGOING MAIL".
-4. Uncheck the box and save to re-enable email sending; the notice will disappear.
+3. (Optional) Enter custom text in the "Custom Notice Text" field to change the admin notice. Leave blank to use the default.
+4. When enabled, a red notice will appear at the top of your admin screens with your custom or default message.
+5. Uncheck the box and save to re-enable email sending; the notice will disappear.
 
 Tested with common email triggers like password resets, user registrations, and contact forms.
 
@@ -63,6 +63,9 @@ Tested with common email triggers like password resets, user registrations, and 
 
 = Why would I want to disable outgoing emails? =
 This is useful in development or staging environments where you don’t want test emails sent to real users (e.g., password resets or order confirmations).
+
+= Can I customize the admin notice? =
+Yes! In the settings, you can enter custom text for the notice. If left blank, it defaults to: "<strong>THIS DEV SITE HAS NO OUTGOING MAIL</strong> Mail from wp_mail() has been disabled for this site."
 
 = Does this block all emails? =
 Yes, it blocks all emails sent through WordPress’s `wp_mail()` function, including those from core, themes, and plugins. The `phpmailer_init` fallback ensures reliability even if a plugin bypasses the standard filter.
@@ -73,15 +76,15 @@ Emails are silently blocked, and functions calling `wp_mail()` will still return
 = Can I see which emails were blocked? =
 The current version doesn’t log blocked emails, but you can use a plugin like "Email Log" alongside this to monitor email activity.
 
-= Will this conflict with other email plugins? =
-It’s designed to work with most setups. The high-priority filters (`PHP_INT_MAX`) help ensure it runs last, but test with your specific plugins (e.g., SMTP or transactional email services) to confirm compatibility.
-
 == Screenshots ==
 
-1. The settings page under "Settings > Email Control" with the toggle checkbox.
-2. The admin notice displayed when outgoing emails are disabled.
+1. The settings page under "Settings > Email Control" with the toggle checkbox and custom notice text field.
+2. The admin notice displayed when outgoing emails are disabled (default or custom text).
 
 == Changelog ==
+
+= 1.5 =
+* Added option to customize the admin notice text with a default fallback.
 
 = 1.4 =
 * Added `phpmailer_init` fallback to ensure reliable email blocking.
@@ -101,8 +104,8 @@ It’s designed to work with most setups. The high-priority filters (`PHP_INT_MA
 
 == Upgrade Notice ==
 
-= 1.4 =
-This update ensures emails are fully blocked with a `phpmailer_init` fallback. Recommended for all users to ensure reliable operation.
+= 1.5 =
+This update adds the ability to customize the admin notice text. Update to personalize your experience!
 
 == License ==
 
