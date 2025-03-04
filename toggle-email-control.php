@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: Toggle Email Control
-Description: Allows enabling/disabling of outgoing WordPress emails via wp_mail() with an admin notice. Includes phpmailer_init fallback.
-Version: 1.4
+Description: Allows enabling/disabling of outgoing WordPress emails via wp_mail() with a customizable admin notice.
+Version: 1.5
 Author: Your Name
 */
 
@@ -30,6 +30,11 @@ function tec_register_settings() {
         'default' => false,
         'sanitize_callback' => 'rest_sanitize_boolean'
     ));
+    register_setting('tec_settings_group', 'tec_notice_text', array(
+        'type' => 'string',
+        'default' => '',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
 }
 add_action('admin_init', 'tec_register_settings');
 
@@ -42,6 +47,7 @@ function tec_settings_page() {
             <?php
             settings_fields('tec_settings_group');
             do_settings_sections('tec_settings_group');
+            $notice_text = get_option('tec_notice_text', '');
             ?>
             <table class="form-table">
                 <tr>
@@ -49,6 +55,13 @@ function tec_settings_page() {
                     <td>
                         <input type="checkbox" name="tec_disable_emails" id="tec_disable_emails" value="1" <?php checked(1, get_option('tec_disable_emails', 0)); ?> />
                         <p class="description">Check this box to disable all outgoing emails from WordPress. An admin notice will appear when enabled.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="tec_notice_text">Custom Notice Text</label></th>
+                    <td>
+                        <input type="text" name="tec_notice_text" id="tec_notice_text" value="<?php echo esc_attr($notice_text); ?>" class="regular-text" />
+                        <p class="description">Enter custom text for the admin notice. Leave blank to use the default: "<strong>THIS DEV SITE HAS NO OUTGOING MAIL</strong> Mail from wp_mail() has been disabled for this site."</p>
                     </td>
                 </tr>
             </table>
@@ -62,10 +75,8 @@ function tec_settings_page() {
 add_filter('wp_mail', 'tec_disable_wp_mail', PHP_INT_MAX);
 function tec_disable_wp_mail($args) {
     if (get_option('tec_disable_emails', false)) {
-        // Returning false attempts to stop the email
         return false;
     }
-    // If not disabled, proceed with sending
     return $args;
 }
 
@@ -73,7 +84,6 @@ function tec_disable_wp_mail($args) {
 add_action('phpmailer_init', 'tec_block_phpmailer', PHP_INT_MAX);
 function tec_block_phpmailer($phpmailer) {
     if (get_option('tec_disable_emails', false)) {
-        // Clear all email data to prevent sending
         $phpmailer->ClearAllRecipients();
         $phpmailer->ClearAttachments();
         $phpmailer->Body = '';
@@ -85,9 +95,12 @@ function tec_block_phpmailer($phpmailer) {
 add_action('admin_notices', 'tec_nomail_notice');
 function tec_nomail_notice() {
     if (get_option('tec_disable_emails', false)) {
+        $default_notice = '<strong>THIS DEV SITE HAS NO OUTGOING MAIL</strong> Mail from wp_mail() has been disabled for this site.';
+        $custom_notice = get_option('tec_notice_text', '');
+        $notice_text = !empty($custom_notice) ? $custom_notice : $default_notice;
         ?>
         <div class="error notice">
-            <p><?php _e('<strong>THIS DEV SITE HAS NO OUTGOING MAIL</strong> Mail from wp_mail() has been disabled for this site.', 'toggle-email-control'); ?></p>
+            <p><?php echo wp_kses_post($notice_text); ?></p>
         </div>
         <?php
     }
