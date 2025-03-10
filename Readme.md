@@ -62,6 +62,13 @@ For more information on the PLUGIN visit the official website: https://wpproatoz
 
 - **Go to **Settings > Email Control** in your WordPress admin dashboard.**: 
 
+## Screenshots
+
+1. **Admin Settings Page** - Admin page for Turn off wpmail
+
+![screenshot1](screenshot1.png)
+
+
 
 ## Frequently Asked Questions
 
