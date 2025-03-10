@@ -20,81 +20,105 @@
   \______(_______;;; __;;;
   
 
-# PLUGin name
+# Toggle Email Control
 
-what the plugin does
+What the plugin does
 
 ### About the plugin
-talk about plugin
-- **feature 1**
-- **feature 2**
-- **feature 3**
-- **feature 4**
+**Toggle Email Control** is a lightweight plugin designed for developers and site administrators who need to disable all outgoing emails from a WordPress site—perfect for development, staging, or testing environments. With a single checkbox in the admin settings, you can block emails sent via `wp_mail()` and customize the admin notice that appears when the feature is active.
 
-For more information on the PLUGIN visit the official website: [https:siteurl).
+Key features:
+- Disable all outgoing emails with one click.
+- Displays a customizable admin notice when emails are disabled (default: "<strong>THIS DEV SITE HAS NO OUTGOING MAIL</strong> Mail from wp_mail() has been disabled for this site.").
+- Uses both `wp_mail` filter and `phpmailer_init` fallback for reliable email blocking.
+- Ideal for preventing unwanted emails during testing or development.
+
+No need to edit core files or `wp-config.php`—everything is managed through a simple settings page.
+
+For more information on the PLUGIN visit the official website: https://wpproatoz.com/wp-pro-a-to-z-plugins-available/
 
 ### Key Features
 
-- **feature 1**
-- **feature 2**
-- **feature 3**
-- **feature 4**
+- **Disable all outgoing emails with one click.**
+- **Displays a customizable admin notice when emails are disabled**
+- **Uses both `wp_mail` filter and `phpmailer_init` fallback for reliable email blocking.**
+- **Ideal for preventing unwanted emails during testing or development.**
 
 ## Installation
 
-1. Download the plugin ZIP file from the [releases page](https://github.com/Ahkonsu/wpproatoz-code-snippets/releases/).
+1. Download the plugin ZIP file from the [releases page](https://github.com/Ahkonsu/wpproatoz-turn-off-wpmail/releases).
 2. Upload it to your WordPress site via the **Plugins** > **Add New** > **Upload Plugin**.
 3. Activate the plugin through the **Plugins** menu in WordPress.
 
 ## Usage
 
-1. **Configure Plugin Settings**: Navigate to **Settings** > ** Settings**.
-2. **more info**: .
-3. **moreinfo**: 
-4. **moreinfo**: 
+1. Go to **Settings > Email Control** in your WordPress admin dashboard.
+2. Check the box labeled "Disable Outgoing Emails" and click "Save Changes" to stop all emails from being sent.
+3. (Optional) Enter custom text in the "Custom Notice Text" field to change the admin notice. Leave blank to use the default.
+4. When enabled, a red notice will appear at the top of your admin screens with your custom or default message.
+5. Uncheck the box and save to re-enable email sending; the notice will disappear.
 
 ### Admin Settings
 
-- **Settings**: 
-- **settings**: 
-- **settings**: 
-- **settings**: 
+- **Go to **Settings > Email Control** in your WordPress admin dashboard.**: 
+
 
 ## Frequently Asked Questions
 
-### question 1?
+= Why would I want to disable outgoing emails? =
+This is useful in development or staging environments where you don’t want test emails sent to real users (e.g., password resets or order confirmations).
 
-answer
+= Can I customize the admin notice? =
+Yes! In the settings, you can enter custom text for the notice. If left blank, it defaults to: "<strong>THIS DEV SITE HAS NO OUTGOING MAIL</strong> Mail from wp_mail() has been disabled for this site."
 
-### question 2?
+= Does this block all emails? =
+Yes, it blocks all emails sent through WordPress’s `wp_mail()` function, including those from core, themes, and plugins. The `phpmailer_init` fallback ensures reliability even if a plugin bypasses the standard filter.
 
-answer
+= What happens when emails are disabled? =
+Emails are silently blocked, and functions calling `wp_mail()` will still return as if the email was sent successfully, preventing errors in dependent plugins.
 
-### question 3?
+= Can I see which emails were blocked? =
+The current version doesn’t log blocked emails, but you can use a plugin like "Email Log" alongside this to monitor email activity.
 
-answer.
+== Screenshots ==
 
-## Screenshots
+1. The settings page under "Settings > Email Control" with the toggle checkbox and custom notice text field.
+2. The admin notice displayed when outgoing emails are disabled (default or custom text).
 
-1. **Admin Settings Page** - description.
+== Changelog ==
 
-![screenshot1](screenshot-1.png)
+= 1.5 =
+* Added option to customize the admin notice text with a default fallback.
 
-2. ** Output** - answer
+= 1.4 =
+* Added `phpmailer_init` fallback to ensure reliable email blocking.
+* Fixed issue where emails were still sent in some cases.
 
-![screenshot2](screenshot-2.png)
+= 1.3 =
+* Adjusted `wp_mail` filter to return `false` when emails are disabled.
 
-## Demo
+= 1.2 =
+* Fixed infinite recursion issue by switching from pluggable function to `wp_mail` filter.
 
-You can view a demo of the plugin in action at [WPProAtoZ.com](https://wpproatoz.com/plugins).
+= 1.1 =
+* Added admin notice that toggles with the email disable setting.
 
-## Changelog
+= 1.0 =
+* Initial release with basic email toggle functionality.
 
-### 1.0.0
+== Upgrade Notice ==
 
-- Initial release of 
-- Added functionality 
-- Added 
+= 1.5 =
+This update adds the ability to customize the admin notice text. Update to personalize your experience!
+
+== License ==
+
+This plugin is licensed under the GPLv2 or later. You are free to use, modify, and distribute it as per the license terms.
+
+== Credits ==
+
+Developed with assistance from xAI’s Grok for debugging and optimization.
+
 
 ## License
 

@@ -20,7 +20,7 @@
  | \____(      )___) )___
   \______(_______;;; __;;;
 === Toggle Email Control ===
-Contributors: [Your Name or Username]
+Contributors: WPProAtoz.com
 Tags: email, wp_mail, disable email, admin notice, development
 Requires at least: 5.0
 Tested up to: 6.5

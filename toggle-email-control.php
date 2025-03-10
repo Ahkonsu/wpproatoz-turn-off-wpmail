@@ -1,9 +1,17 @@
 <?php
 /*
 Plugin Name: Toggle Email Control
-Description: Allows enabling/disabling of outgoing WordPress emails via wp_mail() with a customizable admin notice.
+Description: Allows enabling/disabling of outgoing WordPress emails via wp_mail() with a customizable admin notice. **Toggle Email Control** is a lightweight plugin designed for developers and site administrators who need to disable all outgoing emails from a WordPress site—perfect for development, staging, or testing environments. With a single checkbox in the admin settings, you can block emails sent via `wp_mail()` and customize the admin notice that appears when the feature is active.
 Version: 1.5
-Author: Your Name
+Author: WPProAtoZ.com / John Overall
+Requires at least: 5.2
+Requires PHP:      7.4
+Author URI: https://wpproatoz.com
+Plugin URI: https://wpproatoz.com/wp-pro-a-to-z-plugins-available/
+Text Domain:       wpproatoz-turn-off-wpmail
+Update URI:        https://github.com/Ahkonsu/wpproatoz-turn-off-wpmail/releases
+GitHub Plugin URI: https://github.com/Ahkonsu/wpproatoz-turn-off-wpmail/releases
+GitHub Branch: main  // 
 */
 
 // Prevent direct access
