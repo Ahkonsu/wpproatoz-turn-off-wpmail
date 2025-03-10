@@ -13,6 +13,21 @@ Update URI:        https://github.com/Ahkonsu/wpproatoz-turn-off-wpmail/releases
 GitHub Plugin URI: https://github.com/Ahkonsu/wpproatoz-turn-off-wpmail/releases
 GitHub Branch: main  // 
 */
+//Plugin update checker
+require 'plugin-update-checker/plugin-update-checker.php';
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+$myUpdateChecker = PucFactory::buildUpdateChecker(
+	'https://github.com/Ahkonsu/wpproatoz-turn-off-wpmail/',
+	__FILE__,
+	'wpproatoz-turn-off-wpmail'
+);
+
+//Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('main');
+
+//Optional: If you're using a private repository, specify the access token like this:
+//$myUpdateChecker->setAuthentication('your-token-here');
 
 // Prevent direct access
 if (!defined('ABSPATH')) {
