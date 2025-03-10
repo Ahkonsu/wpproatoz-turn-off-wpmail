@@ -94,6 +94,9 @@ The current version doesn’t log blocked emails, but you can use a plugin like "E
 
 == Changelog ==
 
+= 1.6 =
+* Added sccreenshot
+
 = 1.5 =
 * Added option to customize the admin notice text with a default fallback.
 

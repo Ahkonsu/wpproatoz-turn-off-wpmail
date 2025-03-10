@@ -24,7 +24,7 @@ Contributors: WPProAtoz.com
 Tags: email, wp_mail, disable email, admin notice, development
 Requires at least: 5.0
 Tested up to: 6.5
-Stable tag: 1.5
+Stable tag: 1.6
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -106,6 +106,10 @@ The current version doesn’t log blocked emails, but you can use a plugin like 
 
 = 1.5 =
 This update adds the ability to customize the admin notice text. Update to personalize your experience!
+
+= 1.6 =
+* Added sccreenshot
+
 
 == License ==
 
