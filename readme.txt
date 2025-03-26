@@ -22,10 +22,10 @@
 === Toggle Email Control ===
 Contributors: WPProAtoz.com
 Tags: email, wp_mail, disable email, admin notice, development
-Requires at least: 5.0
-Tested up to: 6.5
-Stable tag: 1.6
-Requires PHP: 7.0
+Requires at least: 6.0
+Tested up to: 6.7.2
+Stable tag: 1.7
+Requires PHP: 8.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -109,6 +109,9 @@ This update adds the ability to customize the admin notice text. Update to perso
 
 = 1.6 =
 * Added sccreenshot
+
+= 1.7 =
+* Adjsute plugin name for consisstency some other minor tweaks
 
 
 == License ==

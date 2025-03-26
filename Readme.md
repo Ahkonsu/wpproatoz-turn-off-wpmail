@@ -121,6 +121,12 @@ The current version doesn’t log blocked emails, but you can use a plugin like "E
 = 1.5 =
 This update adds the ability to customize the admin notice text. Update to personalize your experience!
 
+= 1.6 =
+* Added sccreenshot
+
+= 1.7 =
+* Adjsute plugin name for consisstency some other minor tweaks
+
 == License ==
 
 This plugin is licensed under the GPLv2 or later. You are free to use, modify, and distribute it as per the license terms.
