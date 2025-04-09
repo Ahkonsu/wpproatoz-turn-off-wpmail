@@ -1,149 +1,135 @@
-  ___  _     _                         
- / _ \| |   | |                        
-/ /_\ \ |__ | | _____  _ __  ___ _   _ 
-|  _  | '_ \| |/ / _ \| '_ \/ __| | | |
-| | | | | | |   < (_) | | | \__ \ |_| |
-\_| |_/_| |_|_|\_\___/|_| |_|___/\__,_|
-                                       
-                                      
-		
-		\||/
-                |  @___oo
-      /\  /\   / (__,,,,|
-     ) /^\) ^\/ _)
-     )   /^\/   _)
-     )   _ /  / _)
- /\  )/\/ ||  | )_)
-<  >      |(,,) )__)
- ||      /    \)___)\
- | \____(      )___) )___
-  \______(_______;;; __;;;
-  
+# WPProAtoZ Email & IP Guardian
 
-# Toggle Email Control
+![Plugin Version](https://img.shields.io/badge/version-1.9-blue.svg) ![WordPress](https://img.shields.io/badge/WordPress-6.0%2B-blue.svg) ![PHP](https://img.shields.io/badge/PHP-8.0%2B-blue.svg) ![License](https://img.shields.io/badge/license-GPLv2-green.svg)
 
-What the plugin does
+A lightweight WordPress plugin that empowers site administrators to toggle outgoing emails and restrict site access by IP, designed for development, staging, and testing environments.
 
-### About the plugin
-**Toggle Email Control** is a lightweight plugin designed for developers and site administrators who need to disable all outgoing emails from a WordPress site—perfect for development, staging, or testing environments. With a single checkbox in the admin settings, you can block emails sent via `wp_mail()` and customize the admin notice that appears when the feature is active.
+---
 
-Key features:
-- Disable all outgoing emails with one click.
-- Displays a customizable admin notice when emails are disabled (default: "<strong>THIS DEV SITE HAS NO OUTGOING MAIL</strong> Mail from wp_mail() has been disabled for this site.").
-- Uses both `wp_mail` filter and `phpmailer_init` fallback for reliable email blocking.
-- Ideal for preventing unwanted emails during testing or development.
+## Overview
 
-No need to edit core files or `wp-config.php`—everything is managed through a simple settings page.
+**WPProAtoZ Email & IP Guardian** is a robust tool for developers and site administrators needing precise control over WordPress email sending and site access. From a single settings page under "Settings" > "Email Control", you can disable all emails sent via `wp_mail()` and limit site access to specific IPs or ranges using `.htaccess`. This plugin is perfect for preventing unwanted emails and unauthorized access during development or testing, all without touching core files or `wp-config.php`.
 
-For more information on the PLUGIN visit the official website: https://wpproatoz.com/wp-pro-a-to-z-plugins-available/
+For more information, visit the official website: [https://wpproatoz.com/wp-pro-a-to-z-plugins-available/](https://wpproatoz.com/wp-pro-a-to-z-plugins-available/)
 
 ### Key Features
 
-- **Disable all outgoing emails with one click.**
-- **Displays a customizable admin notice when emails are disabled**
-- **Uses both `wp_mail` filter and `phpmailer_init` fallback for reliable email blocking.**
-- **Ideal for preventing unwanted emails during testing or development.**
+- **Toggle Email Sending**: Disable all outgoing emails with one click.
+- **Customizable Admin Notice**: Display a tailored notice when emails are disabled (default: "<strong>THIS DEV SITE HAS NO OUTGOING MAIL</strong> Mail from wp_mail() has been disabled for this site.").
+- **Reliable Email Blocking**: Utilizes both `wp_mail` filter and `phpmailer_init` fallback.
+- **Email Logging**: Log blocked emails to debug.log (requires WP_DEBUG).
+- **Test Email Feature**: Send test emails to verify functionality.
+- **IP Restriction**: Restrict site access to specified IPs or ranges via `.htaccess`.
+- **Dynamic IP Management**: Add or remove IPs/ranges directly in the settings.
 
 ## Installation
 
 1. Download the plugin ZIP file from the [releases page](https://github.com/Ahkonsu/wpproatoz-turn-off-wpmail/releases).
-2. Upload it to your WordPress site via the **Plugins** > **Add New** > **Upload Plugin**.
+2. Upload it to your WordPress site via **Plugins** > **Add New** > **Upload Plugin**.
 3. Activate the plugin through the **Plugins** menu in WordPress.
 
 ## Usage
 
-1. Go to **Settings > Email Control** in your WordPress admin dashboard.
-2. Check the box labeled "Disable Outgoing Emails" and click "Save Changes" to stop all emails from being sent.
-3. (Optional) Enter custom text in the "Custom Notice Text" field to change the admin notice. Leave blank to use the default.
-4. When enabled, a red notice will appear at the top of your admin screens with your custom or default message.
-5. Uncheck the box and save to re-enable email sending; the notice will disappear.
+1. Navigate to **Settings > Email Control** in your WordPress admin dashboard.
+2. **Email Settings**:
+   - Check "Disable Outgoing Emails" to stop all emails; a notice will appear.
+   - Customize the "Custom Notice Text" and "Notice Background Color" (optional).
+   - Enable "Log Blocked Emails" to track blocked emails in debug.log (requires WP_DEBUG).
+   - Click "Send Test Email" to test email functionality.
+3. **IP Restriction Settings**:
+   - Check "Enable IP Restriction" to limit access to listed IPs (your current IP is auto-added).
+   - Add or remove IPs/ranges (e.g., `192.168.1.1-192.168.1.10`) in "Allowed IPs".
+   - Save to update `.htaccess`.
+4. Uncheck options and save to revert changes.
 
 ### Admin Settings
 
-- **Go to **Settings > Email Control** in your WordPress admin dashboard.**: 
+- Access the settings at **Settings > Email Control**.
 
 ## Screenshots
 
-1. **Admin Settings Page** - Admin page for Turn off wpmail
-
-![screenshot1](screenshot1.png)
-
-
+1. **Admin Settings Page** - Configure email and IP settings seamlessly.  
+   ![screenshot1](screenshot1.png)
+2. **Admin Notice** - Customizable notice when emails are disabled.
 
 ## Frequently Asked Questions
 
-= Why would I want to disable outgoing emails? =
-This is useful in development or staging environments where you don’t want test emails sent to real users (e.g., password resets or order confirmations).
+**Why would I want to disable outgoing emails?**  
+To prevent test emails from reaching real users in development or staging environments (e.g., password resets, order confirmations).
 
-= Can I customize the admin notice? =
-Yes! In the settings, you can enter custom text for the notice. If left blank, it defaults to: "<strong>THIS DEV SITE HAS NO OUTGOING MAIL</strong> Mail from wp_mail() has been disabled for this site."
+**Can I customize the admin notice?**  
+Yes! Set custom text and a background color in the settings. Leave blank for the default: "<strong>THIS DEV SITE HAS NO OUTGOING MAIL</strong> Mail from wp_mail() has been disabled for this site."
 
-= Does this block all emails? =
-Yes, it blocks all emails sent through WordPress’s `wp_mail()` function, including those from core, themes, and plugins. The `phpmailer_init` fallback ensures reliability even if a plugin bypasses the standard filter.
+**Does this block all emails?**  
+Yes, it blocks all `wp_mail()` emails using a filter and `phpmailer_init` fallback for reliability across core, themes, and plugins.
 
-= What happens when emails are disabled? =
-Emails are silently blocked, and functions calling `wp_mail()` will still return as if the email was sent successfully, preventing errors in dependent plugins.
+**What happens when emails are disabled?**  
+Emails are silently blocked, and `wp_mail()` returns as if successful to avoid plugin errors.
 
-= Can I see which emails were blocked? =
-The current version doesn’t log blocked emails, but you can use a plugin like "Email Log" alongside this to monitor email activity.
+**Can I see which emails were blocked?**  
+Enable "Log Blocked Emails" to record details in debug.log (requires WP_DEBUG).
 
-== Screenshots ==
+**How does IP restriction work?**  
+It modifies `.htaccess` to allow only specified IPs/ranges, blocking all other access on Apache servers.
 
-1. The settings page under "Settings > Email Control" with the toggle checkbox and custom notice text field.
-2. The admin notice displayed when outgoing emails are disabled (default or custom text).
+**Does it support IP ranges?**  
+Yes, add ranges like `192.168.1.1-192.168.1.10` in the "Allowed IPs" section.
 
-== Changelog ==
+## Changelog
 
-= 1.6 =
-* Added sccreenshot
+### 1.9
+- Renamed plugin to "WPProAtoZ Email & IP Guardian" for improved branding.
+- Added "Settings" link to plugin listing for quick access.
+- Updated text domain and `.htaccess` marker to reflect new name.
 
-= 1.5 =
-* Added option to customize the admin notice text with a default fallback.
+### 1.8-beta
+- Added IP restriction feature with dynamic IP/range management via `.htaccess`.
+- Enhanced email blocking with dual-layer approach (`wp_mail` filter and `phpmailer_init`).
 
-= 1.4 =
-* Added `phpmailer_init` fallback to ensure reliable email blocking.
-* Fixed issue where emails were still sent in some cases.
+### 1.7
+- Adjusted plugin name consistency and minor tweaks.
 
-= 1.3 =
-* Adjusted `wp_mail` filter to return `false` when emails are disabled.
+### 1.6
+- Added screenshot to documentation.
 
-= 1.2 =
-* Fixed infinite recursion issue by switching from pluggable function to `wp_mail` filter.
+### 1.5
+- Introduced customizable admin notice text with a default fallback.
 
-= 1.1 =
-* Added admin notice that toggles with the email disable setting.
+### 1.4
+- Added `phpmailer_init` fallback for reliable email blocking.
+- Fixed issue where emails were sent in some edge cases.
 
-= 1.0 =
-* Initial release with basic email toggle functionality.
+### 1.3
+- Modified `wp_mail` filter to return `false` when emails are disabled.
 
-== Upgrade Notice ==
+### 1.2
+- Resolved infinite recursion by switching to `wp_mail` filter from pluggable function.
 
-= 1.5 =
-This update adds the ability to customize the admin notice text. Update to personalize your experience!
+### 1.1
+- Added admin notice that toggles with email disable setting.
 
-= 1.6 =
-* Added sccreenshot
+### 1.0
+- Initial release with basic email toggle functionality.
 
-= 1.7 =
-* Adjsute plugin name for consisstency some other minor tweaks
+## Upgrade Notice
 
-== License ==
+### 1.9
+Update for a new name, improved branding, and a convenient "Settings" link in the plugin listing.
 
-This plugin is licensed under the GPLv2 or later. You are free to use, modify, and distribute it as per the license terms.
+### 1.8-beta
+Major update adding IP restriction features—test thoroughly in a staging environment.
 
-== Credits ==
-
-Developed with assistance from xAI’s Grok for debugging and optimization.
-
+### 1.5
+Adds customizable notice text—update to personalize your admin experience!
 
 ## License
 
-This plugin is licensed under the GPL v2 or later. For more information, please see the [GNU General Public License](https://www.gnu.org/licenses/gpl-2.0.html).
+This plugin is licensed under the [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html). You are free to use, modify, and distribute it as per the license terms.
 
 ## Contributing
 
-Contributions are welcome! Feel free to fork the repository, submit issues, or create pull requests.
+Contributions are welcome! Feel free to fork the repository, submit issues, or create pull requests on [GitHub](https://github.com/Ahkonsu/wpproatoz-turn-off-wpmail).
 
----
+## Credits
 
-**Note:** This plugin uses any other credits to other code or coders
+Developed with assistance from xAI’s Grok for debugging and optimization.
