@@ -117,10 +117,10 @@ Yes, add ranges like `192.168.1.1-192.168.1.10` in the "Allowed IPs" section.
 Update for a new name, improved branding, and a convenient "Settings" link in the plugin listing.
 
 ### 1.8-beta
-Major update adding IP restriction features—test thoroughly in a staging environment.
+Major update adding IP restriction featuresâ€”test thoroughly in a staging environment.
 
 ### 1.5
-Adds customizable notice text—update to personalize your admin experience!
+Adds customizable notice textâ€”update to personalize your admin experience!
 
 ## License
 
@@ -130,6 +130,16 @@ This plugin is licensed under the [GPLv2 or later](https://www.gnu.org/licenses/
 
 Contributions are welcome! Feel free to fork the repository, submit issues, or create pull requests on [GitHub](https://github.com/Ahkonsu/wpproatoz-turn-off-wpmail).
 
+## Screenshots
+
+1. **Admin Settings Page** - Admin page for snippits.
+
+![screenshot1](screenshot1.png)
+
+2. ** Support Access Page** - the support access page
+
+![screenshot2](screenshot2.png)
+
 ## Credits
 
-Developed with assistance from xAI’s Grok for debugging and optimization.
+Developed with assistance from xAIâ€™s Grok for debugging and optimization.
