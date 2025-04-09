@@ -132,11 +132,11 @@ Contributions are welcome! Feel free to fork the repository, submit issues, or c
 
 ## Screenshots
 
-1. **Admin Settings Page** - Admin page for snippits.
+1. **Admin Settings Page** - Admin page .
 
 ![screenshot1](screenshot1.png)
 
-2. ** Support Access Page** - the support access page
+2. ** Support Access Page** - Overview
 
 ![screenshot2](screenshot2.png)
 
