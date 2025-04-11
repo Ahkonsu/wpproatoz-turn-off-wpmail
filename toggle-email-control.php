@@ -36,7 +36,7 @@ if (!defined('ABSPATH')) {
 function tec_add_admin_menu() {
     add_options_page(
         'Toggle Email Control',        // Page title
-        'Email Control',               // Menu title
+        'IP & Email Controls',               // Menu title
         'manage_options',              // Capability
         'toggle-email-control',        // Menu slug
         'tec_settings_page'            // Callback function
