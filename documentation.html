@@ -1,0 +1,45 @@
+<h1>WPProAtoZ Email & IP Guardian</h1>
+
+<p><strong>A lightweight plugin to toggle outgoing WordPress emails and restrict site access by IP, perfect for development and testing environments.</strong></p>
+
+<h2>Description</h2>
+
+<p><strong>WPProAtoZ Email & IP Guardian</strong> is a lightweight plugin designed for developers and site administrators who need to manage outgoing emails and site access in WordPress. With a simple settings page under <strong>Settings &gt; IP &amp; Email Controls</strong>, you can disable all emails sent via <code>wp_mail()</code> and restrict site access to specific IPs or IP ranges using <code>.htaccess</code>. Ideal for development, staging, or testing environments, this plugin prevents unwanted emails and unauthorized access with minimal configuration.</p>
+
+<h3>Key Features</h3>
+
+<ul>
+    <li>Disable all outgoing emails with a single checkbox.</li>
+    <li>Customize the admin notice displayed when emails are disabled (default: "<strong>THIS DEV SITE HAS NO OUTGOING MAIL</strong> Mail from wp_mail() has been disabled for this site.").</li>
+    <li>Log blocked emails to <code>debug.log</code> when <code>WP_DEBUG</code> is enabled.</li>
+    <li>Test email functionality with a built-in button.</li>
+    <li>Restrict site access to allowed IPs or IP ranges via <code>.htaccess</code>.</li>
+    <li>Dynamic IP management with add/remove functionality.</li>
+    <li>Uses both <code>wp_mail</code> filter and <code>phpmailer_init</code> fallback for reliable email blocking.</li>
+</ul>
+
+<p>No need to edit core files or <code>wp-config.php</code>—everything is managed through an intuitive settings page.</p>
+
+<h2>Usage</h2>
+
+<ol>
+    <li>Go to <strong>Settings &gt; IP &amp; Email Controls</strong> in your WordPress admin dashboard.</li>
+    <li><strong>Email Settings</strong>:
+        <ul>
+            <li>Check "Disable Outgoing Emails" and save to stop all emails. A customizable admin notice will appear.</li>
+            <li>Adjust the "Custom Notice Text" field (optional) and "Notice Background Color".</li>
+            <li>Enable "Log Blocked Emails" to track blocked emails in <code>debug.log</code> (requires <code>WP_DEBUG</code>).</li>
+            <li>Click "Send Test Email" to test email functionality.</li>
+        </ul>
+    </li>
+    <li><strong>IP Restriction Settings</strong>:
+        <ul>
+            <li>Check "Enable IP Restriction" to limit site access to listed IPs. Your current IP is auto-added.</li>
+            <li>Add or remove IPs/ranges (e.g., 192.168.1.1-192.168.1.10) in the "Allowed IPs" section.</li>
+            <li>Save changes to update <code>.htaccess</code>.</li>
+        </ul>
+    </li>
+    <li>To revert, uncheck the respective options and save.</li>
+</ol>
+
+<p>Tested with common email triggers (e.g., password resets, registrations) and IP restrictions on Apache servers.</p>
