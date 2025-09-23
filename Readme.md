@@ -86,6 +86,9 @@ Optional labels (e.g., "Office VPN") to track what each IP is for—doesn't affe
 Edit documentation.html in the plugin directory; changes load on page refresh.
 
 ## Changelog
+### 1.9.2
+* Fixed typo error in documentation.html file
+  
 ### 1.9.1
 - Fixed initial .htaccess write for IP restrictions on first enable.
 - Added CIDR notation support (e.g., 192.168.1.0/24) for efficient IP ranges.
@@ -127,6 +130,9 @@ Added admin notice that toggles with email disable setting.
 Initial release with basic email toggle functionality.
 
 ## Upgrade Notice
+### 1.9.2
+* Fixed typo error in documentation.html file
+
 ### 1.9.1
 Update for enhanced IP features (CIDR, notes), fixed initial setup, and new Documentation tab.
 
@@ -148,3 +154,4 @@ Contributions are welcome! Feel free to fork the repository, submit issues, or c
 ## Credits
 
 Developed with assistance from xAI’s Grok for debugging and optimization.
+
