@@ -102,6 +102,8 @@ Edit `documentation.html` in the plugin directory; changes load on page refresh.
 3. IP list with notes and CIDR example.
 
 == Changelog ==
+= 1.9.2 =
+* Fixed typo error in documentation.html file
 = 1.9.1 =
 * Fixed initial .htaccess write for IP restrictions on first enable.
 * Added CIDR notation support (e.g., 192.168.1.0/24) for efficient IP ranges.
@@ -161,3 +163,4 @@ This plugin is licensed under the GPLv2 or later. You are free to use, modify, a
 == Credits ==
 
 Developed with assistance from xAI’s Grok for debugging and optimization.
+
