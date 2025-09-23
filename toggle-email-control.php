@@ -2,7 +2,7 @@
 /*
 Plugin Name: WPProAtoZ Email & IP Guardian
 Description: Allows enabling/disabling of outgoing WordPress emails via wp_mail() with a customizable admin notice, plus IP restriction features for site access control.
-Version: 1.9.1
+Version: 1.9.2
 Author: WPProAtoZ.com / John Overall
 Requires at least: 6.0
 Requires PHP: 8.0
@@ -512,4 +512,5 @@ add_action('update_option_tec_allowed_ips', function($old_value, $new_value) {
     if (get_option('tec_enable_ip_restriction', false)) {
         tec_update_htaccess($new_value);
     }
+
 }, 10, 2);
