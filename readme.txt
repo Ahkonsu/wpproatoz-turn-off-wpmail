@@ -25,7 +25,7 @@ Contributors: WPProAtoZ.com
 Tags: email, wp_mail, disable email, ip restriction, admin notice, development, cidr
 Requires at least: 6.0
 Tested up to: 6.7.2
-Stable tag: 1.9.1
+Stable tag: 1.9.2
 Requires PHP: 8.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -159,4 +159,5 @@ Adds customizable notice text—update to personalize your admin experience!
 This plugin is licensed under the GPLv2 or later. You are free to use, modify, and distribute it as per the license terms.
 
 == Credits ==
+
 Developed with assistance from xAI’s Grok for debugging and optimization.
