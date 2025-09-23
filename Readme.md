@@ -1,5 +1,5 @@
 # WPProAtoZ Email & IP Guardian
-![Plugin Version](https://img.shields.io/badge/version-1.9.1-blue.svg)
+![Plugin Version](https://img.shields.io/badge/version-1.9.2-blue.svg)
 ![WordPress](https://img.shields.io/badge/WordPress-6.0%2B-blue.svg)
 ![PHP](https://img.shields.io/badge/PHP-8.0%2B-blue.svg)
 ![License](https://img.shields.io/badge/license-GPLv2-green.svg)
@@ -146,4 +146,5 @@ This plugin is licensed under the [GPLv2 or later](https://www.gnu.org/licenses/
 Contributions are welcome! Feel free to fork the repository, submit issues, or create pull requests on [GitHub](https://github.com/Ahkonsu/wpproatoz-turn-off-wpmail).
 
 ## Credits
+
 Developed with assistance from xAI’s Grok for debugging and optimization.
